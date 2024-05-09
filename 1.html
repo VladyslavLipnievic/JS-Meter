@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <style>
+
+
+      label {
+        display: block;
+        margin-top: 10px;
+        font-size: 13px;
+        color:grey;
+      }
+
+<!--      input[type="submit"] {-->
+<!--        margin-top: 10px;-->
+<!--        padding: 5px 10px;-->
+<!--        background-color: blue;-->
+<!--        color: #fff;-->
+<!--        border: none;-->
+<!--        border-radius: 5px;-->
+<!--      }-->
+
+
+
+<!--    .container {-->
+<!--        width: 80%;-->
+<!--        margin: 0 auto;-->
+<!--        padding: 50px;-->
+<!--    }-->
+
+<!--	label {-->
+<!--		display: block;-->
+<!--		margin-bottom: 10px;-->
+<!--		font-weight: bold;-->
+<!--	}-->
+
+	input[type="text"], input[type="number"], input[type="date"] {
+		padding: 5px;
+		margin-bottom: 20px;
+		border-radius: 5px;
+		border: 1px solid #ccc;
+		width: 350px;
+		height:40px;
+		box-sizing: border-box;
+	}
+
+      button:disabled {
+        background-color: gray;
+        color: white;
+        cursor: not-allowed;
+      }
+
+
+<!--	input[type="submit"] {-->
+<!--		padding: 10px;-->
+<!--        background-color: #34495e;-->
+<!--		color: #fff;-->
+<!--		border: none;-->
+<!--		border-radius: 5px;-->
+<!--		cursor: pointer;-->
+<!--		font-weight: bold;-->
+<!--		margin-top: 20px;-->
+<!--		width: 40%;-->
+<!--		box-sizing: border-box;-->
+<!--	}-->
+
+
+	.clear-button {
+		background-color: #3498db;
+		color: #fff;
+		border: none;
+		border-radius: 5px;
+		padding: 10px;
+		font-weight: bold;
+		cursor: pointer;
+		width: 100%;
+		box-sizing: border-box;
+		margin-top: 20px;
+	}
+
+	.clear-button:hover {
+		background-color: #2980b9;
+	}
+
+	.error {
+		color: red;
+		font-weight: bold;
+		margin-top: 10px;
+	}
+
+	.success {
+		color: green;
+		font-weight: bold;
+		margin-top: 10px;
+	}
+
+	.active {
+		background-color: #27ae60;
+		color: #fff;
+		cursor: pointer;
+		padding: 10px;
+		border-radius: 5px;
+		border: none;
+		font-weight: bold;
+		width: 100%;
+		box-sizing: border-box;
+		margin-top: 20px;
+	}
+
+
+
+	.inactive {
+		background-color: #ccc;
+		color: #fff;
+		cursor: not-allowed;
+		padding: 10px;
+		border-radius: 5px;
+		border: none;
+		font-weight: bold;
+		width: 100%;
+		box-sizing: border-box;
+		margin-top: 20px;
+	}
+
+
+      #isvalyti {
+        margin-top: 20px;
+      }
+
+      #block_container
+      {
+          text-align:center;
+      }
+
+
+
+      .two-rows {
+          margin: 25px 150px 0px 22%;
+      }
+
+      table {
+        margin: 30px 0px 0px 10%;
+        width:80%
+      }
+
+    .btn-success{
+    margin-top:20px;
+      width:12%
+    }
+
+
+    .required-field:after {
+        content:" *";
+        color: red;
+      }
+
+
+
+      .Rows {
+          display: table;
+          width: 80%;
+          margin: 30px 0px 0px 10%;
+      }
+      .Columns {
+          display: table-cell;
+      }
+
+      .column1{
+            border-radius: 1px;
+            background: #F0F0F0;
+            padding: 20px;
+            width: 100px;
+            height: 150px;
+
+      }
+
+      .column2{
+
+            border-radius: 5px;
+            background: #F0F0F0;
+            padding: 20px;
+            width: 100px;
+            height: 150px;
+      }
+
+      .column3{
+            border-radius: 5px;
+            background: #F0F0F0;
+            padding: 20px;
+            width: 100px;
+            height: 150px;
+      }
+
+
+
+
+    </style>
+  </head>
+  <body>
+    <form id="kuro-norma-form">
+
+
+      <div class="text-center">
+
+          <input type="button" class="btn-primary btn-lg" id="isvalyti" value="Įvesti naują ridos parametrą ">
+
+          <label class="required-field" for="parametru-pradzia">Naujų parametrų galiojimas nuo</label>
+          <input type="date" id="parametru-pradzia">
+
+      </div>
+
+
+      <div class="two-rows row text-center">
+
+          <div class="col-md-5">
+            <label  class="required-field" for="kuro-norma-siltajam-1">Kuro norma šiltajam laikotarpiui, l/100km (1 pusmetis):</label>
+            <input  type="number" id="kuro-norma-siltajam-1" required step="any">
+          </div>
+
+          <div class="col-md-5">
+            <label class="required-field" for="kuro-norma-saltajam-1">Kuro norma šaltajam laikotarpiui, l/100km (1 pusmetis):</label>
+             <input type="number" id="kuro-norma-saltajam-1" required step="any">
+          </div>
+
+      </div>
+
+
+
+
+
+
+
+        <div class=" Rows">
+
+          <div class="Columns column1">
+               <label class="required-field" for="rida-1">Rida, km (1 pusmetis):</label>
+               <input type="number" id="rida-1" required step="any">
+               <label class="first-box" for="kuro-norma-1">Kuro norma, l (1 pusmetis):</label>
+               <input type="text" id="kuro-norma-1" readonly>
+          </div>
+
+          <div></div>
+
+          <div class="Columns column2">
+                <label class=" required-field" for="rida-2">Rida, km (2 pusmetis):</label>
+                <input type="number" id="rida-2" required step="any">
+                <label class="second-box" for="kuro-norma-2">Kuro norma, l (2 pusmetis):</label>
+                <input type="text" id="kuro-norma-2" readonly>
+          </div>
+
+          <div></div>
+
+          <div class="Columns column3">
+                <label  for="rida-metams">Rida, km (Metams):</label>
+                <input type="number" id="rida-metams" readonly>
+                <label class="third-box" for="kuro-norma-metams">Kuro norma, l (Metams):</label>
+                <input type="text" id="kuro-norma-metams" readonly></td>
+          </div>
+
+          </div>
+
+
+
+
+
+
+      <div class="text-center">
+
+          <input type="submit" class=" btn btn-primary btn-success center btn-lg" id="skaiciuoti" value="Išsaugoti">
+
+      </div>
+
+      
+
+
+    </form>
+
+    <script>
+
+      $("#skaiciuoti").prop("disabled", true);
+
+       $(document).ready(function() {
+        $("input[required]").on("input", function() {
+          var allFilled = true;
+          $("input[required]").each(function() {
+            if ($(this).val().trim() === "") {
+              allFilled = false;
+            }
+          });
+          if (allFilled) {
+            $("#skaiciuoti").prop("disabled", false);
+          } else {
+            $("#skaiciuoti").prop("disabled", true);
+          }
+        });
+
+
+
+
+  document.getElementById('skaiciuoti').addEventListener('click', function(event) {
+  let isFormValid = document.getElementById('kuro-norma-form').checkValidity();
+
+    if(isFormValid) {
+
+        event.preventDefault();
+    }
+
+
+    
+    // Gauti įvestas reikšmes
+    const parametruPradzia = new Date(document.getElementById('parametru-pradzia').value);
+    const kuroNormaSiltajam1 = parseFloat(document.getElementById('kuro-norma-siltajam-1').value);
+    const kuroNormaSaltajam1 = parseFloat(document.getElementById('kuro-norma-saltajam-1').value);
+    const rida1 = parseFloat(document.getElementById('rida-1').value);
+    const rida2 = parseFloat(document.getElementById('rida-2').value);
+    document.getElementById('rida-metams').value = rida1 + rida2
+    const ridaMetams = rida1 + rida2
+
+
+
+    const kuroNorma1 = ( rida1 / 6 ) * 3 / 100 * kuroNormaSiltajam1 + ( rida1 / 6 ) * 3 / 100 * kuroNormaSaltajam1
+
+    const kuroNorma2 =  ( rida2 / 6 ) * 4 / 100 * kuroNormaSiltajam1 + ( rida2 / 6 ) * 2 / 100 * kuroNormaSaltajam1
+
+    const kuroNormaMetams = kuroNorma1 + kuroNorma2
+
+
+    // Įdėti reikiamas reikšmes į įvedimo laukelius
+    document.getElementById('kuro-norma-1').value = kuroNorma1.toFixed(2) + ' l';
+    document.getElementById('kuro-norma-2').value = kuroNorma2.toFixed(2) + ' l';
+    document.getElementById('kuro-norma-metams').value = kuroNormaMetams.toFixed(2) + ' l';
+
+    document.getElementById('isvalyti').disabled = false;
+
+
+  });
+
+
+
+
+
+
+
+
+
+  document.getElementById('isvalyti').addEventListener('click', function(event) {
+
+  $("#skaiciuoti").prop("disabled", true);
+
+    event.preventDefault(); // Neperkrauti puslapio
+    
+    // Išvalyti visus įvesties laukus
+    document.getElementById('kuro-norma-siltajam-1').value = '';
+    document.getElementById('kuro-norma-saltajam-1').value = '';
+	document.getElementById('rida-1').value = '';
+	document.getElementById('rida-2').value = '';
+	document.getElementById('rida-metams').value = '';
+	document.getElementById('parametru-pradzia').value = '';
+	document.getElementById('kuro-norma-1').value = '';
+	document.getElementById('kuro-norma-2').value = '';
+	document.getElementById('kuro-norma-metams').value = '';
+
+
+    document.getElementById('isvalyti').disabled = true;
+  });
+
+
+ });
+
+</script>
+  </body>
+</html>
